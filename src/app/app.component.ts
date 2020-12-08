@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Model } from './model';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
  
-  user = 'OrkunYK';
+ model = new Model();
 
-  items = [
-    { description:"Kahvaltı",action:"No" },
-    { description:"Sinema",action:"No" },
-    { description:"Spor",action:"No" },
-    { description:"Sinema",action:"No" }
-  ]
+ getName(){
+   return this.model.user;
+ }
+
+ getItems(){
+   return this.model.items.filter(item=> item.action==false);
+ }
 
 }
